@@ -50,14 +50,14 @@ Open style.css and add line
 @import "font awesome"
 
 Generate certificate and private key at:
-"Q:\TEMP\certs\certificate.crt"
-"Q:\TEMP\certs\privateKey.key"
+"C:/tmp/certs/certificate.crt"
+"C:/tmp/certs/privateKey.key"
 
 In file client\angular.json add certificate info as
         "serve": {
           "options": {
-            "sslCert": "C:/certs/certificate.crt",
-            "sslKey": "C:/certs/privateKey.key",
+            "sslCert": "C:/tmp/certs/certificate.crt",
+            "sslKey": "C:/tmp/certs/privateKey.key",
             "ssl": true
           },
 
