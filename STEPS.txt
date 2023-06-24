@@ -1,0 +1,127 @@
+0> download zip version of node-v18.16.1-win-x64.zip and unzip it
+
+1> mkdir RatingApp_Client (this folder)
+cd RatingApp_Client (this folder)
+2> set PATH=<nodejs_extract_path>\node-v18.16.1-win-x64;%PATH%
+
+3> 
+npm install -g @angular/cli@15.0.0
+#npm install @angular/cli@15.0.0
+
+
+ng version
+
+Angular CLI: 15.0.0
+Node: 18.16.0
+Package Manager: npm 9.5.1
+OS: win32 x64
+
+Angular:
+...
+
+Package                      Version
+------------------------------------------------------
+@angular-devkit/architect    0.1500.0 (cli-only)
+@angular-devkit/core         15.0.0 (cli-only)
+@angular-devkit/schematics   15.0.0 (cli-only)
+@schematics/angular          15.0.0 (cli-only)
+
+4> ng new client
+cd client
+
+5> 
+code .
+
+
+
+
+npm install bootstrap@5.3.0
+
+npm install font-awesome@4.7.0
+
+npm install ngx-bootstrap@10.2.0 --legacy-peer-deps
+
+Open app.module.ts file and add content
+    BrowserAnimationsModule,
+    BsDropdownModule.forRoot(),
+
+Open style.css and add line
+@import "~bootstrap/dist/css/bootstrap.css"
+@import "font awesome"
+
+Generate certificate and private key at:
+"Q:\TEMP\certs\certificate.crt"
+"Q:\TEMP\certs\privateKey.key"
+
+In file client\angular.json add certificate info as
+        "serve": {
+          "options": {
+            "sslCert": "C:/certs/certificate.crt",
+            "sslKey": "C:/certs/privateKey.key",
+            "ssl": true
+          },
+
+ng build
+
+ng serve
+
+Open in browser
+https://localhost:4200 / http://localhost:4200
+
+
+
+
+
+
+
+
+
+
+Generating SSL certificate for Angular apps for development/testing in localhost
+================================================================================
+
+NOTE: openssl is available inside sourcetree / perl. So we can do
+C:\Windows\System32\where.exe openssl (inside DevPortable) and get the path.
+OR
+cd /d Q:\
+dir /s /b openssl.exe
+
+1> Open Command Prompt in admin mode
+
+
+Microsoft Windows [Version 10.0.19045.2728]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Windows\system32>SET PATH=D:\Users\XXXXXXXXXXXXXXX\Downloads\repos\DevPortable\Softwares\PortableGit\mingw64\bin;%PATH%
+
+C:\Windows\system32>cd /d c:\tmp
+
+c:\tmp>mkdir certs
+
+c:\tmp>cd certs
+
+c:\tmp\certs>
+c:\tmp\certs>openssl
+OpenSSL> req -x509 -sha256 -nodes -days 30 -newkey rsa:2048 -keyout privayeKey.key -out certificate.crt
+Generating a RSA private key
+..+++++
+...............+++++
+writing new private key to 'privayeKey.key'
+-----
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:IN
+State or Province Name (full name) [Some-State]:Maharastra
+Locality Name (eg, city) []:Pune
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:ApniCompany
+Organizational Unit Name (eg, section) []:ApniOrgUnit
+Common Name (e.g. server FQDN or YOUR name) []:JPrasad
+Email Address []:jp@localhost.com
+OpenSSL> exit
+
+c:\tmp\certs>
