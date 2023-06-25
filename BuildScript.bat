@@ -13,6 +13,12 @@ powershell -command " npm install -g @angular/cli@15.0.0 "
 %SystemRoot%\System32\where.exe ng.cmd
 
 powershell -command " ng.cmd version "
+
+%SystemRoot%\System32\where.exe ng.cmd
+%SystemRoot%\System32\where.exe npm.cmd
+
+powershell -command " npm.cmd i "
+
 powershell -command " ng.cmd build "
 
 
