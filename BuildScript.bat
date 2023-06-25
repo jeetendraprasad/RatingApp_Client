@@ -21,6 +21,7 @@ powershell -command " npm.cmd i "
 
 powershell -command " ng.cmd build "
 
-
+dir
+tree
 
 exit /b 0
