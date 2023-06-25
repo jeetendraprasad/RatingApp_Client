@@ -7,8 +7,14 @@ node --version
 
 dir
 cd client
+
 powershell -command " npm install -g @angular/cli@15.0.0 "
-@REM npm install -g @angular/cli@15.0.0
-powershell -command " ng version "
-powershell -command " ng build "
+
+%SystemRoot%\System32\where.exe ng.cmd
+
+powershell -command " ng.cmd version "
+powershell -command " ng.cmd build "
+
+
+
 exit /b 0
