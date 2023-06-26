@@ -19,9 +19,13 @@ powershell -command " ng.cmd version "
 
 powershell -command " npm.cmd i "
 
-powershell -command " ng.cmd build "
+powershell -command " ng.cmd build --base-href /eapp/ "
 
 dir
 tree
+
+@REM PENDING is deployment in
+@REM local macine : C:\tmp\client
+@REM server : development@192.168.x.y
 
 exit /b 0
