@@ -15,24 +15,22 @@ SET SERVER_FOLDER=c:\tmp
 SET PATH=%PATH%;%systemroot%\system32\inetsrv\;
 SET PATH=%SystemRoot%\System32\WindowsPowerShell\v1.0\;%PATH%
 
-powershell -command " 'node version is' ; node --version; "
-node --version
-
-dir
 cd client
 
-#powershell -command " npm install -g @angular/cli@15.0.0 "
+@REM powershell -command " npm install -g @angular/cli@15.0.0 "
 
 %SystemRoot%\System32\where.exe ng.cmd
 
-powershell -command " ng.cmd version "
+@REM powershell -command " ng.cmd version "
 
-%SystemRoot%\System32\where.exe ng.cmd
-%SystemRoot%\System32\where.exe npm.cmd
+@REM %SystemRoot%\System32\where.exe ng.cmd
+@REM %SystemRoot%\System32\where.exe npm.cmd
 
 powershell -command " npm.cmd i "
 
 powershell -command " ng.cmd build --base-href /eapp/ "
+
+dir /s
 
 scp -r %WORK_FOLDER%\bin\debug %SERVER_ADMINUSER%@%SERVER_IP%:%SERVER_FOLDER%\debug
 
