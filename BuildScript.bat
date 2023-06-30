@@ -36,11 +36,11 @@ powershell -command " del .\dist  -Recurse -Force -Confirm:$false "
 powershell -command " ng.cmd build --base-href /eapp/ "
 
 @REM dir dist /s
-dir
-dir %WORK_FOLDER%\client\dist
-dir %WORK_FOLDER%\client\dist\client
+@REM dir
+@REM dir %WORK_FOLDER%\client\dist
+@REM dir %WORK_FOLDER%\client\dist\client
 
-scp -r .\client\dist\client %SERVER_ADMINUSER%@%SERVER_IP%:%SERVER_FOLDER%\client
+scp -r %WORK_FOLDER%\client\dist\client %SERVER_ADMINUSER%@%SERVER_IP%:%SERVER_FOLDER%\client
 
 ssh development@192.168.87.1 < ServerDeploymentCommands.txt
 
