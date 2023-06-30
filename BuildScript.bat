@@ -6,6 +6,8 @@ SET WORK_FOLDER=%~dp0
 SET WORK_FOLDER=%WORK_FOLDER:~0,-1%
 echo %WORK_FOLDER%
 
+type %0
+
 @REM SERVER_IP IS DYNAMIC IP SO I HAVE TO CHANGE THAT ALWAYS.
 SET SERVER_IP=192.168.87.1
 SET SERVER_ADMINUSER=development
@@ -28,12 +30,17 @@ cd client
 
 powershell -command " npm.cmd i "
 
+powershell -command " del .\dist  -Recurse -Force -Confirm:$false "
+dir dist /s
+
 powershell -command " ng.cmd build --base-href /eapp/ "
 
 dir dist /s
 
-scp -r %WORK_FOLDER%\client\dist\client %SERVER_ADMINUSER%@%SERVER_IP%:%SERVER_FOLDER%\client
+scp -r %WORK_FOLDER%\dist\client %SERVER_ADMINUSER%@%SERVER_IP%:%SERVER_FOLDER%\client
 
 ssh development@192.168.87.1 < ServerDeploymentCommands.txt
+
+cd ..
 
 exit /b 0
