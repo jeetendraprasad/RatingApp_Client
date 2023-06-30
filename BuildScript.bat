@@ -31,11 +31,14 @@ cd client
 powershell -command " npm.cmd i "
 
 powershell -command " del .\dist  -Recurse -Force -Confirm:$false "
-dir dist /s
+@REM dir dist /s
 
 powershell -command " ng.cmd build --base-href /eapp/ "
 
-dir dist /s
+@REM dir dist /s
+dir
+dir %WORK_FOLDER%\dist
+dir %WORK_FOLDER%\dist\client
 
 scp -r %WORK_FOLDER%\dist\client %SERVER_ADMINUSER%@%SERVER_IP%:%SERVER_FOLDER%\client
 
