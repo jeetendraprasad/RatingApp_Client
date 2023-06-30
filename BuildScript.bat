@@ -42,7 +42,7 @@ powershell -command " ng.cmd build --base-href /eapp/ "
 
 scp -r %WORK_FOLDER%\client\dist\client %SERVER_ADMINUSER%@%SERVER_IP%:%SERVER_FOLDER%\client
 
-ssh development@192.168.87.1 < ServerDeploymentCommands.txt
+ssh development@192.168.87.1 < %WORK_FOLDER%\ServerDeploymentCommands.txt
 
 cd ..
 
