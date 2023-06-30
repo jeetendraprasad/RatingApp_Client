@@ -8,8 +8,10 @@ appcmd add app /site.name:"Default Web Site" /path:"/eapp" /physicalpath:"c:\ine
 
 powershell -command " mkdir c:\inetpub\wwwroot\eapp -Force -Confirm:$false "
 
-copy c:\tmp\client "%systemroot%\inetpub\wwwroot\eapp\"
+dir c:\tmp\client
 
-@REM powershell -command " del c:\tmp\client -Recurse -Force -Confirm:$false "
+copy c:\tmp\client "c:\inetpub\wwwroot\eapp\"
+
+powershell -command " del c:\tmp\client -Recurse -Force -Confirm:$false "
 
 exit /b 0
