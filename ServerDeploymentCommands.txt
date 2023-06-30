@@ -1,6 +1,4 @@
-dir
-
-exit /b 0
+@REM : c:\tmp should be present on server
 
 SET PATH=%PATH%;%systemroot%\system32\inetsrv\;
 SET PATH=%SystemRoot%\System32\WindowsPowerShell\v1.0\;%PATH%
