@@ -30,9 +30,9 @@ powershell -command " npm.cmd i "
 
 powershell -command " ng.cmd build --base-href /eapp/ "
 
-dir /s
+dir /s dist /b
 
-scp -r %WORK_FOLDER%\bin\debug %SERVER_ADMINUSER%@%SERVER_IP%:%SERVER_FOLDER%\debug
+scp -r %WORK_FOLDER%\client\dist\client %SERVER_ADMINUSER%@%SERVER_IP%:%SERVER_FOLDER%\client
 
 ssh development@192.168.87.1 < ServerDeploymentCommands.txt
 
