@@ -3,6 +3,10 @@ dir
 exit /b 0
 
 SET PATH=%PATH%;%systemroot%\system32\inetsrv\;
+SET PATH=%SystemRoot%\System32\WindowsPowerShell\v1.0\;%PATH%
+
+powershell -command " del c:\tmp\client -Recurse -Force -Confirm:$false "
+
 appcmd add app /site.name:"Default Web Site" /path:"/eapp" /physicalpath:"c:\inetpub\wwwroot\eapp"
 mkdir "c:\inetpub\wwwroot\eapp"
 copy c:\tmp\client "%systemroot%\inetpub\wwwroot\eapp\"
