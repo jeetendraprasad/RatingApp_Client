@@ -10,6 +10,6 @@ powershell -command " mkdir c:\inetpub\wwwroot\eapp -Force -Confirm:$false "
 
 copy c:\tmp\client "%systemroot%\inetpub\wwwroot\eapp\"
 
-powershell -command " del c:\tmp\client -Recurse -Force -Confirm:$false "
+@REM powershell -command " del c:\tmp\client -Recurse -Force -Confirm:$false "
 
 exit /b 0
