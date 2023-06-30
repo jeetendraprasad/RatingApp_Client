@@ -30,7 +30,7 @@ powershell -command " npm.cmd i "
 
 powershell -command " ng.cmd build --base-href /eapp/ "
 
-dir /s dist /b
+dir dist /s
 
 scp -r %WORK_FOLDER%\client\dist\client %SERVER_ADMINUSER%@%SERVER_IP%:%SERVER_FOLDER%\client
 
