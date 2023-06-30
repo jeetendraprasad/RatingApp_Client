@@ -1,0 +1,8 @@
+dir
+
+exit /b 0
+
+SET PATH=%PATH%;%systemroot%\system32\inetsrv\;
+appcmd add app /site.name:"Default Web Site" /path:"/eapp" /physicalpath:"c:\inetpub\wwwroot\eapp"
+mkdir "c:\inetpub\wwwroot\eapp"
+copy c:\tmp\RatingApp_Client\client\dist\client "c:\inetpub\wwwroot\eapp\"
