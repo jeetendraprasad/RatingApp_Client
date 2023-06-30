@@ -21,7 +21,7 @@ node --version
 dir
 cd client
 
-powershell -command " npm install -g @angular/cli@15.0.0 "
+#powershell -command " npm install -g @angular/cli@15.0.0 "
 
 %SystemRoot%\System32\where.exe ng.cmd
 
