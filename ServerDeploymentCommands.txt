@@ -3,15 +3,19 @@
 SET PATH=%PATH%;%systemroot%\system32\inetsrv\;
 SET PATH=%SystemRoot%\System32\WindowsPowerShell\v1.0\;%PATH%
 
+@REM create a new web app 'eapp' inside 'Default Web Site'. If that website is already present then this command would give error.
 appcmd add app /site.name:"Default Web Site" /path:"/eapp" /physicalpath:"c:\inetpub\wwwroot\eapp"
-@REM mkdir "c:\inetpub\wwwroot\eapp"
 
+@REM forcefully create folder 'c:\inetpub\wwwroot\eapp'
 powershell -command " mkdir c:\inetpub\wwwroot\eapp -Force -Confirm:$false "
 
+@REM checking content of folder
 dir c:\tmp\client
 
+#REM copying the content to website path on server
 copy c:\tmp\client "c:\inetpub\wwwroot\eapp\"
 
+@REM deleting c:\tmp\client as we dont require that now.
 powershell -command " del c:\tmp\client -Recurse -Force -Confirm:$false "
 
 exit /b 0

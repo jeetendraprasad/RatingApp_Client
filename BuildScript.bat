@@ -6,8 +6,6 @@ SET WORK_FOLDER=%~dp0
 SET WORK_FOLDER=%WORK_FOLDER:~0,-1%
 echo %WORK_FOLDER%
 
-@REM type %0
-
 @REM SERVER_IP IS DYNAMIC IP SO I HAVE TO CHANGE THAT ALWAYS.
 SET SERVER_IP=192.168.87.1
 SET SERVER_ADMINUSER=development
@@ -25,23 +23,18 @@ cd client
 
 @REM powershell -command " ng.cmd version "
 
-@REM %SystemRoot%\System32\where.exe ng.cmd
-@REM %SystemRoot%\System32\where.exe npm.cmd
-
 powershell -command " npm.cmd i "
 
+@REM deleting original dist folder (if thats already present)
 powershell -command " del .\dist  -Recurse -Force -Confirm:$false "
-@REM dir dist /s
 
+@REM building angular project with name 'eapp'
 powershell -command " ng.cmd build --base-href /eapp/ "
 
-@REM dir dist /s
-@REM dir
-@REM dir %WORK_FOLDER%\client\dist
-@REM dir %WORK_FOLDER%\client\dist\client
-
+@REM copying content of dist folder to server
 scp -r %WORK_FOLDER%\client\dist\client %SERVER_ADMINUSER%@%SERVER_IP%:%SERVER_FOLDER%\client
 
+@REM giving derver deployment command to server using ssh
 ssh development@192.168.87.1 < %WORK_FOLDER%\ServerDeploymentCommands.txt
 
 cd ..
