@@ -37,10 +37,10 @@ powershell -command " ng.cmd build --base-href /eapp/ "
 
 @REM dir dist /s
 dir
-dir %WORK_FOLDER%\dist
-dir %WORK_FOLDER%\dist\client
+dir %WORK_FOLDER%\client\dist
+dir %WORK_FOLDER%\client\dist\client
 
-scp -r .\dist\client %SERVER_ADMINUSER%@%SERVER_IP%:%SERVER_FOLDER%\client
+scp -r .\client\dist\client %SERVER_ADMINUSER%@%SERVER_IP%:%SERVER_FOLDER%\client
 
 ssh development@192.168.87.1 < ServerDeploymentCommands.txt
 
